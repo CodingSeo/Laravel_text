@@ -72,7 +72,10 @@ class Article extends Model
     /* Accessor */
 
     public function getCommentCountAttribute() {
-        return (int) $this->comments->count();
+        // var_dump($this->comments);
+        return is_null($this->comments)? 0:(int) $this->comments->count();
+        // count to object
+        // return (int) $this->comments->count();
     }
 
 //    // 의사(Pseudo) 코드. 주석 풀어도 작동하지 않습니다.
